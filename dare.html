@@ -268,9 +268,13 @@
   line-height: 1; /* Remove extra space around the letter */
 }
 
-/* New CSS for button spacing */
+/* MODIFIED: New CSS for button spacing and to make it a button group */
 [data-zone="dare-philosophy"] .button-wrapper {
   margin-top: var(--space-xl); /* Add significant space above the button */
+  display: flex; /* Use flexbox for button layout */
+  justify-content: center; /* Center buttons horizontally */
+  gap: var(--space-sm); /* Add space between buttons */
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
 }
 
 @media (max-width: 900px) {
@@ -321,123 +325,41 @@
   .section-dare-about .video-container {
     margin-top: var(--space-md);
   }
-}</style><style id="__gitqi-section-dare-receives-styles">.dare-receives-section {
-  padding: var(--space-xl) 0;
-  background-color: var(--color-bg-alt);
-}
-
-.dare-receives-section .section-header {
-  margin-bottom: var(--space-lg);
-}
-
-.dare-receives-section .section-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: var(--space-xs);
-  display: block;
-}
-
-.dare-receives-section h2 {
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-  font-weight: 300;
-  margin-bottom: var(--space-sm);
-}
-
-.dare-receives-section .cards-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
-}
-
-.dare-receives-section .card {
-  background: var(--color-bg);
-  border-radius: var(--radius);
-  padding: var(--space-md);
-  box-shadow: var(--shadow);
+}</style><style id="__gitqi-section-dare-receives-styles">.dare-program-card {
   display: flex;
   flex-direction: column;
 }
 
-.dare-receives-section .card-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: var(--color-accent-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: var(--space-sm);
-  font-size: 1.4rem;
-  flex-shrink: 0;
-}
-
-.dare-receives-section .card h4 {
-  font-family: var(--font-heading);
-  font-size: clamp(1.15rem, 2vw, 1.5rem);
-  font-weight: 400;
-  color: var(--color-primary);
-  margin-bottom: var(--space-xs);
-}
-
-.dare-receives-section .card .content-wrapper {
+.dare-program-card .card-content-wrapper {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
-.dare-receives-section .card p {
-  color: var(--color-text-muted);
-  font-size: 0.93rem;
-  margin-bottom: var(--space-sm);
-}
-
-.dare-receives-section .card p:last-child {
-  margin-bottom: 0;
-}
-
-.dare-receives-section .card ul {
+.dare-program-card .card-bullet-list {
   list-style: none;
-  padding-left: 1.2rem;
+  padding-left: 1.2rem; /* Indentation for bullet */
   margin-top: var(--space-xs);
 }
 
-.dare-receives-section .card li {
+.dare-program-card .card-bullet-list li {
   color: var(--color-accent);
   font-size: 0.93rem;
   margin-bottom: var(--space-xs);
   position: relative;
-  padding-left: 1rem;
+  padding-left: 1rem; /* Space for custom bullet */
 }
 
-.dare-receives-section .card li::before {
+.dare-program-card .card-bullet-list li::before {
   content: "\2022"; /* Orange bullet point */
   color: var(--color-accent);
   font-weight: bold;
   display: inline-block;
   width: 1em;
-  margin-left: -1em;
+  margin-left: -1em; /* Pull bullet outside of padding-left */
   position: absolute;
   left: 0;
   top: 0;
-}
-
-.dare-receives-section .card .extra-details {
-  margin-top: auto;
-}
-
-@media (max-width: 900px) {
-  .dare-receives-section .cards-wrapper {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .dare-receives-section .cards-wrapper {
-    grid-template-columns: 1fr;
-  }
 }</style><style id="__gitqi-section-video-embed-styles">/* No specific CSS needed for this section beyond global styles and the provided video embed styling. */</style><style id="__gitqi-section-dare-who-styles">/* No additional CSS needed for this change, as existing utility classes and button styles are sufficient. */</style><style id="__gitqi-section-dare-difference-styles"></style><style id="__gitqi-section-dare-testimonials-styles">.dare-testimonials__cta {
     margin-top: var(--space-lg);
 }</style></head>
@@ -594,8 +516,8 @@
       </div>
     </div>
 
-    <!-- New button added here -->
-    <div class="text-center button-wrapper">
+    <!-- Removed the duplicate button as per instruction -->
+    <div class="button-wrapper">
       <a href="https://stillness-in-motion.heymarvelous.com/buy/product/95315" class="btn btn-primary" data-editable="" target="_blank" rel="noopener noreferrer">I DARE to Heal - Sign me up!</a>
     </div>
   </div>
@@ -662,19 +584,19 @@
     </div>
 </section>
 
-  <section class="section section-alt dare-receives-section" id="dare-receives" data-zone="dare-receives" data-zone-label="What Participants Receive" style="position: relative;">
+  <section class="section section-alt" id="dare-receives" data-zone="dare-receives" data-zone-label="What Participants Receive" style="position: relative;">
   <div class="container">
     <div class="section-header text-center">
       <span class="section-label" data-editable="">Inside the Program</span>
       <h2 data-editable="">What you receive in the DARE to Heal</h2>
     </div>
-    <div class="cards-wrapper">
-      <div class="card">
+    <div class="grid-3">
+      <div class="card dare-program-card">
         <div class="card-icon">🎥</div>
-        <div class="content-wrapper">
-          <h4 data-editable="">Weekly Video Modules</h4>
+        <div class="card-content-wrapper">
+          <h3 data-editable="">Weekly Video Modules</h3>
           <p data-editable="">New content is unlocked every week. These will cover:</p>
-          <ul>
+          <ul class="card-bullet-list">
             <li data-editable="">The theme of the week</li>
             <li data-editable="">Pain care nugget</li>
             <li data-editable="">Movement snacks</li>
@@ -687,24 +609,24 @@
           </ul>
         </div>
       </div>
-      <div class="card">
+      <div class="card dare-program-card">
         <div class="card-icon">🤾</div>
-        <div class="content-wrapper">
-          <h4 data-editable="">Six Live Group Coaching calls</h4>
+        <div class="card-content-wrapper">
+          <h3 data-editable="">Six Live Group Coaching calls</h3>
           <p data-editable="">Connect directly synchronously with Colleen and with the members of your cohort. In these calls:</p>
-          <ul>
+          <ul class="card-bullet-list">
             <li data-editable="">Embody the themes of the program through guided practice with Colleen<br></li>
             <li data-editable="">Share your experiences and hear how others are taking in the program</li>
             <li data-editable="">Q &amp; A&nbsp; - Colleen is happy to answer your questions<br></li>
           </ul>
         </div>
       </div>
-      <div class="card">
+      <div class="card dare-program-card">
         <div class="card-icon">📄</div>
-        <div class="content-wrapper">
-          <h4 data-editable="">Bonuses</h4>
+        <div class="card-content-wrapper">
+          <h3 data-editable="">Bonuses</h3>
           <p data-editable="">Downloadable materials that help you integrate learning, track your insights, and build a personal toolkit for ongoing support.</p>
-          <ul>
+          <ul class="card-bullet-list">
             <li data-editable="">Pain care e-book</li>
             <li data-editable="">DARE checklist</li>
             <li data-editable="">Sleep hygiene PDF</li>
@@ -717,27 +639,30 @@
           </ul>
         </div>
       </div>
-      <div class="card">
+      <div class="card dare-program-card">
         <div class="card-icon">🎧</div>
-        <div class="content-wrapper">
-          <h4 data-editable="">Recordings &amp; Replays</h4>
+        <div class="card-content-wrapper">
+          <h3 data-editable="">Recordings &amp; Replays</h3>
           <p data-editable="">Once you've registered for DARE you continue to have access to the program for life (or as long as the program exists).&nbsp; You have your own personal DARE library where you can revisit all the material, included replays of the live coaching calls.</p>
         </div>
       </div>
-      <div class="card">
+      <div class="card dare-program-card">
         <div class="card-icon">🌐</div>
-        <div class="content-wrapper">
-          <h4 data-editable="">Community Access</h4>
+        <div class="card-content-wrapper">
+          <h3 data-editable="">Community Access</h3>
           <p data-editable="">Community is a meaningful part of the healing process.&nbsp; Connect with the DARE OG's (members dating back to 2019) and your fellow cohorts.&nbsp; We share wins, and struggles and moments of joy!&nbsp; It's a supportive community that lasts beyond the 12 week program.&nbsp; When you register for DARE you'll get an invitation to join our exclusive community on FaceBook.&nbsp;&nbsp;</p>
         </div>
       </div>
-      <div class="card">
+      <div class="card dare-program-card">
         <div class="card-icon">💬</div>
-        <div class="content-wrapper">
-          <h4 data-editable="">Cost:</h4>
+        <div class="card-content-wrapper">
+          <h3 data-editable="">Cost:</h3>
           <p data-editable="">$425 (tax included)<br><br></p>
         </div>
       </div>
+    </div>
+    <div class="text-center" style="margin-top: var(--space-lg);">
+      <a href="https://stillness-in-motion.heymarvelous.com/buy/product/95315" class="btn btn-primary" data-editable="" target="_blank" rel="noopener noreferrer">I DARE to Heal - Sign me up!</a>
     </div>
   </div>
 </section>
@@ -754,7 +679,7 @@
         <div class="testimonial"><blockquote data-editable="">“Colleen holds the space with so much warmth and intelligence. I finally felt understood — not just managed.”</blockquote><cite data-editable="">— Program Participant</cite></div>
       </div>
       <div class="text-center dare-testimonials__cta">
-        <a href="#" class="btn btn-primary" data-editable="">I DARE to heal - Sign me up!</a>
+        <a href="https://stillness-in-motion.heymarvelous.com/buy/product/95315" class="btn btn-primary" data-editable="" target="_blank" rel="noopener noreferrer">I DARE to heal - Sign me up!</a>
       </div>
     </div>
   </section>
